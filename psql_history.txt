@@ -1,0 +1,33 @@
+\l
+\d
+CREATE DATABASE worldcup;
+\d
+\l
+\c worldcup
+\d
+CREATE TABLE teams();
+CREATE TABLE games();
+\d
+ALTER TABLE teams ADD COLUMN team_id SERIAL PRIMARY KEY;
+ALTER TABLE teams ADD COLUMN name VARCHAR(30) UNIQUE NOT NULL;
+\D teas
+\D teams
+\d teams
+ALTER TABLE games ADD COLUMN game_id SERIAL PRIMARY KEY;
+ALTER TABLE games ADD COLUMN year INT NOT NULL;
+ALTER TABLE games ADD COLUMN round VARCHAR(25) NOT NULL;
+ALTER TABLE games ADD COLUMN winner_id INT NOT NULL;
+ALTER TABLE games ADD FOREIGN KEY(winner_id) REFERENCES teams(team_id);
+\d games
+ALTER TABLE games ADD COLUMN opponent_id INT NOT NULL;
+ALTER TABLE games ADD FOREIGN KEY(opponent_id) REFERENCES teams(team_id);
+\d games
+ALTER TABLE games ADD COLUMN winner_goals INT;
+ALTER TABLE games ADD COLUMN opponent_goals INT;
+ALTER TABLE games ALTER COLUMN winner_goals SET NOT NULL;
+\d games
+ALTER TABLE games ALTER COLUMN opponent_goals SET NOT NULL;
+\h psql_history.txt
+\g psql_history.txt
+\d
+\s psql_history.txt

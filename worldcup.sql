@@ -140,6 +140,30 @@ ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.t
 -- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.teams VALUES (73, 'France');
+INSERT INTO public.teams VALUES (74, 'Croatia');
+INSERT INTO public.teams VALUES (75, 'Belgium');
+INSERT INTO public.teams VALUES (76, 'England');
+INSERT INTO public.teams VALUES (77, 'Russia');
+INSERT INTO public.teams VALUES (78, 'Sweden');
+INSERT INTO public.teams VALUES (79, 'Brazil');
+INSERT INTO public.teams VALUES (80, 'Uruguay');
+INSERT INTO public.teams VALUES (81, 'Colombia');
+INSERT INTO public.teams VALUES (82, 'Switzerland');
+INSERT INTO public.teams VALUES (83, 'Japan');
+INSERT INTO public.teams VALUES (84, 'Mexico');
+INSERT INTO public.teams VALUES (85, 'Denmark');
+INSERT INTO public.teams VALUES (86, 'Spain');
+INSERT INTO public.teams VALUES (87, 'Portugal');
+INSERT INTO public.teams VALUES (88, 'Argentina');
+INSERT INTO public.teams VALUES (89, 'Germany');
+INSERT INTO public.teams VALUES (90, 'Netherlands');
+INSERT INTO public.teams VALUES (91, 'Costa Rica');
+INSERT INTO public.teams VALUES (92, 'Chile');
+INSERT INTO public.teams VALUES (93, 'Nigeria');
+INSERT INTO public.teams VALUES (94, 'Algeria');
+INSERT INTO public.teams VALUES (95, 'Greece');
+INSERT INTO public.teams VALUES (96, 'United States');
 
 
 --
@@ -153,7 +177,7 @@ SELECT pg_catalog.setval('public.games_game_id_seq', 1, false);
 -- Name: teams_team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.teams_team_id_seq', 1, false);
+SELECT pg_catalog.setval('public.teams_team_id_seq', 96, true);
 
 
 --

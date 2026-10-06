@@ -31,3 +31,15 @@ ALTER TABLE games ALTER COLUMN opponent_goals SET NOT NULL;
 \g psql_history.txt
 \d
 \s psql_history.txt
+\q
+SELECT name FROM teams WHERE name='spain'; 
+INSERT INTO teams (name) VALUES ('Spain');
+SELECT name FROM teams WHERE name='Spain'; 
+SELECT * FROM teams WHERE name='Spain'; 
+SELECT * FROM teams WHERE name='Spain'; 
+SELECT * FROM teams; 
+DELETE FROM teams;
+SELECT * FROM teams; 
+DELETE FROM teams;
+DELETE FROM teams;
+\s psql_history.txt

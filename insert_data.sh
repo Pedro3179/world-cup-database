@@ -9,6 +9,9 @@ fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
+# Remove data from games table
+( $PSQL "DELETE FROM games;" )
+
 # Iterate through every line of the games.csv table and populate the worldcup db
 cat games.csv | while IFS=',' read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
 do
@@ -22,8 +25,8 @@ do
     then
       echo $( $PSQL "INSERT INTO teams (name) VALUES ('$WINNER');" )
 
-    else
-      echo -e "\n$WINNER is already in the DB"
+    #else
+      #echo -e "\n$WINNER is already in the DB"
 
     fi
 
@@ -35,33 +38,28 @@ do
     then
       echo $( $PSQL "INSERT INTO teams (name) VALUES ('$OPPONENT');" )
 
-    else
-      echo -e "\n$OPPONENT is already in the DB"
+    # else
+      # echo -e "\n$OPPONENT is already in the DB"
 
     fi
 
-  # Retrieve teams id
+  # Retrieve team ids
   WINNER_ID=$( $PSQL "SELECT team_id FROM teams WHERE name='$WINNER';")
-  echo -e "\nWINNER ID OF $WINNER: $WINNER_ID"
 
   OPPONENT_ID=$( $PSQL "SELECT team_id FROM teams WHERE name='$OPPONENT';")
-  echo "OPPONENT ID OF $OPPONENT: $OPPONENT_ID"
 
 
-  # Populate games table  
-  #echo $( $PSQL "INSERT INTO games (year, round, winner_goals, opponent_goals) VALUES ($YEAR, '$ROUND', $WINNER_GOALS, $OPPONENT_GOALS);" )
-
-  # 
-
-
+  # Insert data into games table  
+  echo $( $PSQL "INSERT INTO games (year, round, winner_goals, opponent_goals, winner_id, opponent_id) VALUES ($YEAR, '$ROUND', $WINNER_GOALS, $OPPONENT_GOALS, $WINNER_ID, $OPPONENT_ID);" )
 
   fi
-
-
 
 done
 
 # Retrieve all the data in teams table
-#echo -e "\n$( $PSQL 'SELECT * FROM teams;')"
+echo -e "\nTotal rows in teams: $( $PSQL 'SELECT COUNT(*) FROM teams;')"
+
+# Retrieve all the data in games table
+echo -e "\nTotal rows in games: $( $PSQL 'SELECT COUNT(*) FROM games;')"
 
 

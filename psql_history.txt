@@ -51,3 +51,8 @@ SELECT AVG(opponent_goals) FROM games;
 SELECT ROUND(AVG(winner_goals)) FROM games;
 SELECT ROUND(AVG(winner_goals), 2) FROM games;
 \s psql_history.txt
+SELECT AVG(SUM(winner_goals)+SUM(opponent_goals)) FROM games;
+SELECT AVG((SUM(winner_goals)+SUM(opponent_goals))) FROM games;
+SELECT AVG(winner_goals) FROM games;
+SELECT (AVG(winner_goals)+AVG(opponent_goals)) FROM games;
+\s psql_history.txt

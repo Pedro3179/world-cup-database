@@ -11,10 +11,10 @@ echo -e "\nTotal number of goals in all games from both teams combined:"
 echo "$( $PSQL 'SELECT (SUM(winner_goals)+SUM(opponent_goals)) FROM games;')"
 #3
 echo -e "\nAverage number of goals in all games from the winning teams:"
-echo
+echo "$( $PSQL 'SELECT AVG(winner_goals) FROM games;' )"
 #4
 echo -e "\nAverage number of goals in all games from the winning teams rounded to two decimal places:"
-echo
+echo "$( $PSQL 'SELECT ROUND(AVG(winner_goals), 2) FROM games;' )"
 #5
 echo -e "\nAverage number of goals in all games from both teams:"
 echo

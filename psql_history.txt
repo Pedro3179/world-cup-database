@@ -32,10 +32,22 @@ ALTER TABLE games ALTER COLUMN opponent_goals SET NOT NULL;
 \d
 \s psql_history.txt
 \q
+\l
+\d
+SELECT * FROM games;
+\d teams
 SELECT * FROM teams;
+SELECT SUM(winner_goals, opponent_goals) FROM games;
 \d games
-INSERT INTO games (year, round, winner_goals, opponent_goals) VALUES (1998, 'Final', 4, 2);
-SELECT * FROM teams;
-SELECT * FROM teams;
-SELECT * FROM teams;
+SELECT (SUM(winner_goals)+SUM(opponent_goals)) FROM games;
+SELECT SUM(opponent_goals) FROM games;
+\h
+\h select
+\h select ()
+SELECT AVG(opponent_goals) FROM games;
+SELECT AVG(SUM(opponent_goals)) FROM games;
+SELECT AVG(winner_goals) FROM games;
+SELECT AVG(opponent_goals) FROM games;
+SELECT ROUND(AVG(winner_goals)) FROM games;
+SELECT ROUND(AVG(winner_goals), 2) FROM games;
 \s psql_history.txt

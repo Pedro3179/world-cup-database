@@ -9,18 +9,18 @@ fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
-# Remove data from games table
+# Remove data from the games table
 ( $PSQL "DELETE FROM games;" )
 
-# Iterate through every line of the games.csv table and populate the worldcup db
+# Iterate through every line of games.csv and populate the worldcup db
 cat games.csv | while IFS=',' read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
 do
   if [[ $YEAR != 'year' ]]
   then
-    # Check if winner is already in the database
+    # Check if the winner is already in the database
     NEW_TEAM=$( $PSQL "SELECT name FROM teams WHERE name='$WINNER';" )
 
-    # If it is not, insert team in table teams
+    # If it is not, insert the team in the teams table
     if [[ -z $NEW_TEAM ]]
     then
       echo $( $PSQL "INSERT INTO teams (name) VALUES ('$WINNER');" )
@@ -56,10 +56,9 @@ do
 
 done
 
-# Retrieve all the data in teams table
+# Quick sanity check: Verify the number of total rows in each table
 echo -e "\nTotal rows in teams: $( $PSQL 'SELECT COUNT(*) FROM teams;')"
 
-# Retrieve all the data in games table
 echo -e "\nTotal rows in games: $( $PSQL 'SELECT COUNT(*) FROM games;')"
 
 

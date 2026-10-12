@@ -32,27 +32,13 @@ ALTER TABLE games ALTER COLUMN opponent_goals SET NOT NULL;
 \d
 \s psql_history.txt
 \q
-\l
-\d
-SELECT * FROM games;
-\d teams
-SELECT * FROM teams;
-SELECT SUM(winner_goals, opponent_goals) FROM games;
-\d games
-SELECT (SUM(winner_goals)+SUM(opponent_goals)) FROM games;
-SELECT SUM(opponent_goals) FROM games;
-\h
-\h select
-\h select ()
-SELECT AVG(opponent_goals) FROM games;
-SELECT AVG(SUM(opponent_goals)) FROM games;
-SELECT AVG(winner_goals) FROM games;
-SELECT AVG(opponent_goals) FROM games;
-SELECT ROUND(AVG(winner_goals)) FROM games;
-SELECT ROUND(AVG(winner_goals), 2) FROM games;
-\s psql_history.txt
-SELECT AVG(SUM(winner_goals)+SUM(opponent_goals)) FROM games;
-SELECT AVG((SUM(winner_goals)+SUM(opponent_goals))) FROM games;
-SELECT AVG(winner_goals) FROM games;
-SELECT (AVG(winner_goals)+AVG(opponent_goals)) FROM games;
+SELECT name LIKE 'Co%' FROM teams;
+SELECT name LIKE Co% FROM teams;
+SELECT name FROM teams LIKE 'Co%';
+SELECT name LIKE 'Co_' FROM teams;
+SELECT name FROM teams;
+SELECT name LIKE 'Co' FROM teams;
+SELECT name HAVE 'Co' FROM teams;
+SELECT name FROM teams WHERE name LIKE 'Co';
+SELECT name FROM teams WHERE name LIKE 'Co%';
 \s psql_history.txt

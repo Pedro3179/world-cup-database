@@ -38,4 +38,4 @@ echo -e "\nYear and team name of all the champions:"
 echo "$( $PSQL "SELECT year, name FROM teams JOIN games ON teams.team_id=games.winner_id;" )"
 #12
 echo -e "\nList of teams that start with 'Co':"
-echo
+echo "$( $PSQL "SELECT name FROM teams WHERE name LIKE 'Co%';" )"

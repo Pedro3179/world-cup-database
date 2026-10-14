@@ -1,6 +1,6 @@
 # FIFA World Cup Database
 
-A project that stores some data about the *World Cup* and display information about teams and matches. A script takes information from a *worldcup.csv* and stores them in a database. Another script queries the database and retrieve data concerning the final three rounds of the 2014 and the 2018 *FIFA World Cup*.
+A project that stores some data about the *World Cup* and displays information about teams and matches. A script takes information from a *worldcup.csv* and stores it in a database. Another script queries the database and retrieves data concerning the final three rounds of the 2014 and the 2018 *FIFA World Cup* tournaments.
 
 This project is one of the steps to acquire the *Relational Databases Certification*. The lab project is called "Build a World Cup Database".
 
@@ -8,17 +8,17 @@ This project is one of the steps to acquire the *Relational Databases Certificat
 
 ## What I Learned
 
-- How to send commands into *PSQL through *bash* with `psql -U username -d db_name -c`
+- How to send commands into *PSQL* through *bash* with `psql -U username -d db_name -c`
 - How to populate a database using *bash* commands
 - How to check if a variable is empty in *bash*
 - How to pipe the stdin of a command into a while block to loop through the lines of a text file, with `cat file.extension | while read VAR`
-- How to use `IFS` variable to define a separator to unpack all the information of the line into a variable, with `cat file.extension | while IFS=',' read VAR1 VAR2`
-- How to make the script idempotent checking if the data is already stored or dropping what would be duplicated
+- How to use the `IFS` variable to define a separator to unpack all the information of the line into a variable, with `cat file.extension | while IFS=',' read VAR1 VAR2`
+- How to make the script idempotent by checking if the data is already stored or dropping what would be duplicated
 - How to make a sanity check to quickly verify the script results
 - How to sum the values in a column with `SELECT SUM(column_name) FROM table_name`
 - How to retrieve the average of a column with `SELECT AVG(column_name) FROM table_name;`
-- How to round numbers in SQL with `SELECT ROUND(column_name), 2) FROM table_name;`
-- How to retrive the hight number in a column with `SELECT MAX(column_name) FROM table_name;`
+- How to round numbers in SQL with `SELECT ROUND(column_name, 2) FROM table_name;`
+- How to retrieve the highest number in a column with `SELECT MAX(column_name) FROM table_name;`
 - How to count the values in a column with `SELECT COUNT(*) FROM table_name;`
 - How to use *join operations* to connect tables through a *foreign key*
 - How to use `DISTINCT` to select only unique values
